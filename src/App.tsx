@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen } from 'lucide-react';
 import { AppState } from './types';
-import logoSvg from './assets/logo_final-03.svg';
+import logoSvg from './assets/logo_final-02.png';
 import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
 import { buildPrompt, cn } from './utils';
 import { Chip, InfoPop } from './components';
@@ -16,7 +16,7 @@ const DEFAULT_STATE: AppState = {
   genre: "minimalist",
   film: "none",
   contrast: "low",
-  whitespace: 75,
+  whitespace: 70,
   shot: "vast",
   ratio: "4:5",
   noise: "moderate",
@@ -105,16 +105,25 @@ export default function App() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 pt-8 md:pt-12">
         
         {/* Header */}
-        <header className="mb-6 md:mb-10 pb-5 md:pb-6 border-b border-stone-200 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <header className="mb-6 md:mb-10 pb-5 md:pb-6 border-b border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img 
-              src={logoSvg} 
-              alt="悅心靈 Logo" 
-              className="w-10 h-10 object-contain drop-shadow-xs" 
+            <div 
+              className="h-14 sm:h-18 w-[220px] sm:w-[290px] bg-[#FF7A7B] shrink-0"
+              style={{
+                maskImage: `url(${logoSvg})`,
+                WebkitMaskImage: `url(${logoSvg})`,
+                maskSize: 'contain',
+                WebkitMaskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                WebkitMaskRepeat: 'no-repeat',
+                maskPosition: 'left center',
+                WebkitMaskPosition: 'left center'
+              }}
+              aria-label="Logo"
             />
-            <h1 className="text-[clamp(22px,3vw,32px)] font-bold tracking-tight leading-tight" style={{ color: '#FF7A7B' }}>
-              悅心靈・品牌影像生成提示詞
-            </h1>
+            <span className="text-[12px] sm:text-[13px] font-medium text-stone-500 tracking-wide pt-1 border-l border-stone-300 pl-3">
+              品牌影像風格提示詞
+            </span>
           </div>
 
           <div className="flex items-center gap-2.5">
@@ -356,7 +365,7 @@ export default function App() {
                 <span className="font-mono text-[11.5px] text-stone-400">02 / 03</span>
               </div>
               <p className="text-[13px] text-stone-500 mb-5 mt-1 leading-relaxed">
-                結合畫面比例、攝影流派敘事、光影對比度、構圖景別與底片濾鏡效果。
+                結合畫面比例、攝影流派敘事、光影對比度、構圖視野與底片濾鏡效果。
               </p>
 
               {/* A. Ratio (Moved to Top) */}
@@ -444,19 +453,56 @@ export default function App() {
               {/* D. Composition & Shot */}
               <div className="mb-6 border-t border-stone-100 pt-5">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[11px] tracking-widest uppercase text-stone-500 font-bold">構圖與景別 (Composition & Shot)</span>
+                  <span className="text-[11px] tracking-widest uppercase text-stone-500 font-bold">構圖與視野 (Composition & Shot)</span>
                   <InfoPop 
                     id="info-composition" 
                     isOpen={openInfo["composition"] || false} 
                     onToggle={() => toggleInfo("composition")}
-                    text={<>設定畫面的空間結構與鏡頭視野，透過留白比例控制呼吸感，並結合景別選擇營造視覺焦點。</>}
+                    text={<>設定畫面的空間結構與鏡頭視野，透過留白比例控制呼吸感，並結合拍攝視野營造視覺焦點。</>}
                   />
                 </div>
                 
                 {/* Sub-card 1: Whitespace */}
                 <div className="bg-stone-50/70 border border-stone-200/80 rounded-2xl p-4 mb-3">
                   <div className="flex items-center justify-between gap-3 mb-2">
-                    <span className="text-[12px] font-bold text-stone-700 tracking-wide uppercase">留白比例 (Whitespace)</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[12px] font-bold text-stone-700 tracking-wide uppercase">留白比例 (Whitespace)</span>
+                      <InfoPop 
+                        id="info-whitespace" 
+                        isOpen={openInfo["whitespace"] || false} 
+                        onToggle={() => toggleInfo("whitespace")}
+                        text={
+                          <div className="space-y-2.5">
+                            <div>
+                              <div className="font-bold text-stone-900 mb-1">留白比例 (Whitespace) 與提示詞差異</div>
+                              <p className="text-[12px] text-stone-600 leading-relaxed">
+                                透過滑桿控制畫面負空間與呼吸感。不同數值區間會自動轉換為精準的 AI 提示詞：
+                              </p>
+                            </div>
+                            <div className="space-y-2">
+                              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-2.5">
+                                <div className="font-semibold text-stone-800 text-[11.5px] mb-1">0%–30%（滿版緊湊）</div>
+                                <div className="font-mono text-[11px] text-stone-600 bg-white border border-stone-200/60 rounded px-2 py-1 overflow-x-auto whitespace-nowrap">
+                                  tightly framed, subject fills most of the frame, minimal negative space
+                                </div>
+                              </div>
+                              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-2.5">
+                                <div className="font-semibold text-stone-800 text-[11.5px] mb-1">31%–60%（平衡舒適）</div>
+                                <div className="font-mono text-[11px] text-stone-600 bg-white border border-stone-200/60 rounded px-2 py-1 overflow-x-auto whitespace-nowrap">
+                                  balanced composition with comfortable negative space
+                                </div>
+                              </div>
+                              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-2.5">
+                                <div className="font-semibold text-stone-800 text-[11.5px] mb-1">61%–100%（寬闊留白）</div>
+                                <div className="font-mono text-[11px] text-stone-600 bg-white border border-stone-200/60 rounded px-2 py-1 overflow-x-auto whitespace-nowrap">
+                                  expansive negative space, the subject small within a vast quiet frame
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        }
+                      />
+                    </div>
                     <span className="font-mono text-[12px] font-semibold text-[#FF7A7B] bg-[#FF7A7B]/10 px-2 py-0.5 rounded-lg border border-[#FF7A7B]/30">{state.whitespace}%</span>
                   </div>
                   <input 
@@ -475,7 +521,7 @@ export default function App() {
                 {/* Sub-card 2: Shot Size */}
                 <div className="bg-stone-50/70 border border-stone-200/80 rounded-2xl p-4">
                   <div className="flex items-center gap-2 mb-2.5">
-                    <span className="text-[12px] font-bold text-stone-700 tracking-wide uppercase">景別選擇 (Shot Size)</span>
+                    <span className="text-[12px] font-bold text-stone-700 tracking-wide uppercase">拍攝視野 (Shot Size)</span>
                     <InfoPop 
                       id="info-shot" 
                       isOpen={openInfo["shot"] || false} 

@@ -118,7 +118,7 @@ export function GuideModal({ isOpen, onClose }: GuideModalProps) {
               <div>
                 <h4 className="text-sm font-bold text-stone-800 mb-0.5">Step 4：風格與構圖</h4>
                 <p className="text-xs text-stone-500 leading-relaxed">
-                  包含畫面比例、攝影流派（極簡光影、侘寂靜物等）、光影對比度、留白比例、景別選擇、底片濾鏡與噪點顆粒感。
+                  包含畫面比例、攝影流派（極簡光影、侘寂靜物等）、光影對比度、留白比例、拍攝視野、底片濾鏡與噪點顆粒感。
                 </p>
               </div>
             </div>

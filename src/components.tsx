@@ -111,7 +111,7 @@ export function InfoPop({ id, text, isOpen, onToggle }: InfoPopProps) {
       {isOpen && (
         <div
           id={id}
-          className="absolute z-30 top-full left-0 mt-2 w-72 sm:w-80 bg-white text-stone-700 border border-stone-200/90 rounded-2xl p-4 text-[12.5px] leading-relaxed shadow-xl animate-in fade-in duration-150"
+          className="absolute z-30 top-full left-0 mt-2 w-80 sm:w-96 bg-white text-stone-700 border border-stone-200/90 rounded-2xl p-4 text-[12.5px] leading-relaxed shadow-xl animate-in fade-in duration-150"
         >
           {text}
         </div>
