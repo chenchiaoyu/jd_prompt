@@ -137,8 +137,7 @@ export const SHOTS: Option[] = [
   { key: "macro", name: "微距 Macro", phrase: "macro close-up, extreme detail, shallow depth of field" },
   { key: "closeup", name: "近景 Close-up", phrase: "close-up shot, intimate framing, shallow depth of field" },
   { key: "medium", name: "中景 Medium", phrase: "medium shot, natural human-eye perspective" },
-  { key: "vast", name: "遼闊 Expansive", phrase: "vast expansive wide shot, sweeping open scene, a sense of scale and stillness" },
-  { key: "aerial", name: "空拍 Aerial", phrase: "aerial top-down view, minimalist landscape framing" }
+  { key: "vast", name: "遼闊 Expansive", phrase: "vast expansive wide shot, sweeping open scene, a sense of scale and stillness" }
 ];
 
 export const RATIOS: Option[] = [

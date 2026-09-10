@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen } from 'lucide-react';
 import { AppState } from './types';
+import logoSvg from './assets/logo_final-03.svg';
 import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
 import { buildPrompt, cn } from './utils';
 import { Chip, InfoPop } from './components';
@@ -107,7 +108,7 @@ export default function App() {
         <header className="mb-6 md:mb-10 pb-5 md:pb-6 border-b border-stone-200 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="flex items-center gap-3">
             <img 
-              src="logo_final-03.svg" 
+              src={logoSvg} 
               alt="悅心靈 Logo" 
               className="w-10 h-10 object-contain drop-shadow-xs" 
             />
