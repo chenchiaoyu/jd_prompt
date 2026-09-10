@@ -131,17 +131,17 @@ export default function App() {
               href="https://chenchiaoyu.github.io/jd_colorgradient/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-300/60 shadow-xs transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-white text-stone-700 hover:bg-stone-50 border border-stone-200/80 shadow-xs transition-all active:scale-95 cursor-pointer"
             >
-              <ExternalLink className="w-4 h-4 text-stone-500" />
+              <ExternalLink className="w-4 h-4 text-[#FF7A7B]" />
               <span>品牌漸層色搭配參考</span>
             </a>
             <button
               type="button"
               onClick={() => setShowGuideModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-[#FF7A7B]/10 text-[#FF7A7B] hover:bg-[#FF7A7B]/20 border border-[#FF7A7B]/30 shadow-xs transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-white text-[#FF7A7B] hover:bg-rose-50/50 border border-[#FF7A7B]/40 shadow-xs transition-all active:scale-95 cursor-pointer"
             >
-              <BookOpen className="w-4 h-4" style={{ color: '#FF7A7B' }} />
+              <BookOpen className="w-4 h-4 text-[#FF7A7B]" />
               <span>網頁使用說明</span>
             </button>
           </div>
