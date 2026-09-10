@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { AppState } from './types';
 import logoSvg from './assets/logo_final-02.png';
-import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
+import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, MJ_VERSIONS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
 import { buildPrompt, cn } from './utils';
 import { Chip, InfoPop } from './components';
 import { GuideModal } from './components/GuideModal';
@@ -22,6 +22,7 @@ const DEFAULT_STATE: AppState = {
   noise: "moderate",
   exclude: [],
   format: "general",
+  mjVersion: "6.0",
   suffix: DEFAULT_SUFFIX,
   stylize: 150,
   chaos: 0,
@@ -337,32 +338,7 @@ export default function App() {
                 placeholder="點選上方物件擇一加入，或直接輸入自己的題材：地平線上的第一道光、掌心捧著的植物…"
               />
 
-              {/* 構圖與物件參考圖片 (選填) */}
-              <div className="mt-6 pt-5 border-t border-stone-100">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[11px] tracking-widest uppercase text-stone-400 font-bold">補充設定・構圖與物件參考圖片 (選填)</span>
-                  <InfoPop 
-                    id="info-sref" 
-                    isOpen={openInfo["sref"] || false} 
-                    onToggle={() => toggleInfo("sref")}
-                    text={<>輸入圖片檔名或網址。AI 會將此圖作為物件主題與構圖參考，保留您所選的色彩與光影設定，不覆蓋顏色。</>}
-                  />
-                  <button 
-                    type="button" 
-                    onClick={() => updateState({ sref: "" })}
-                    className="ml-auto appearance-none border border-[#FF7A7B]/40 bg-[#FF7A7B]/10 text-[#FF7A7B] text-[11.5px] font-bold cursor-pointer py-1.5 px-3.5 rounded-full hover:bg-[#FF7A7B] hover:text-white transition-all active:scale-95"
-                  >
-                    清除輸入
-                  </button>
-                </div>
-                <input 
-                  type="text" 
-                  value={state.sref}
-                  onChange={e => updateState({ sref: e.target.value })}
-                  placeholder="輸入圖片檔名或網址，例如: brand-mood.jpg"
-                  className="w-full min-w-0 bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow"
-                />
-              </div>
+
             </section>
 
             {/* 2. Style & Composition (Merged with Ratio & Film) */}
@@ -655,6 +631,8 @@ export default function App() {
                 className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 resize-y focus:outline-none focus:ring-2 focus:ring-rose-300 transition-shadow mb-5"
               />
 
+
+
               <div className={`transition-opacity duration-200 ${isGeneral ? 'opacity-40 pointer-events-none hidden' : ''}`}>
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <label className="text-[14px] font-semibold flex items-center gap-2" style={{ color: '#FF7A7B' }}>
@@ -663,6 +641,21 @@ export default function App() {
                     </label>
                   </div>
                   <div className="bg-stone-50/50 p-5 rounded-2xl border border-stone-200/60 mb-2">
+                    <div className="mb-5">
+                      <div className="text-[14px] font-semibold mb-2">Midjourney 版本 (--v)</div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {MJ_VERSIONS.map(v => (
+                          <Chip
+                            key={v.key}
+                            active={(state.mjVersion || "6.0") === v.key}
+                            title={v.name}
+                            sub={v.sub}
+                            onClick={() => updateState({ mjVersion: v.key })}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
                     <div className="flex items-center justify-between gap-3 mb-3 mt-1">
                       <label className="text-[14px] font-semibold">構圖參考權重 (--iw)</label>
                       <span className="font-mono text-[13px] text-stone-500 bg-stone-100 px-2 py-1 rounded-lg">{state.srefWeight}</span>

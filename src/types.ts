@@ -45,6 +45,7 @@ export interface AppState {
   noise: string;
   exclude: string[];
   format: 'midjourney' | 'general';
+  mjVersion: string;
   suffix: string;
   stylize: number;
   chaos: number;

@@ -16,7 +16,8 @@ function whitespacePhrase(v: number) {
 function colorPhrase(state: AppState) {
   const c = PALETTES.find(p => p.key === state.color) || PALETTES[0];
   const s = c.shades.find(sh => sh.key === state.shade) || c.shades[1];
-  return `${c.phrase}, ${s.depthLabel}, ${c.mood}`;
+  const hex = s?.hex || c.hex;
+  return `soft ambient lighting tinted in color hex ${hex}`;
 }
 
 const SINGLE_IMAGE_PHRASE = "a single unified photograph, one continuous full-bleed scene, not a collage, not a grid, not a mood board";
@@ -40,7 +41,6 @@ export function buildPrompt(state: AppState): string {
     subjectText,
     SINGLE_IMAGE_PHRASE,
     colorPhrase(state),
-    `specifically color-graded and tinted with exact hex code ${hex}`,
     contrast.phrase,
     whitespacePhrase(state.whitespace),
     shot.phrase,
@@ -78,11 +78,11 @@ export function buildPrompt(state: AppState): string {
   let noList = NO_PARAMS;
   if (excludeTerms.length) noList += ", " + excludeTerms.join(", ");
 
-  tail += ` --v 6.0 --style raw --no ${noList}`;
+  const mjVer = state.mjVersion || "8.2";
+  tail += ` --v ${mjVer} --style raw --no ${noList}`;
 
   if (srefUrl) {
-    const iwVal = (state.srefWeight / 500).toFixed(1);
-    return `${srefUrl} ${parts.join(", ")}${tail} --iw ${iwVal}`;
+    return `${srefUrl} ${parts.join(", ")}${tail}`;
   }
 
   return parts.join(", ") + tail;
