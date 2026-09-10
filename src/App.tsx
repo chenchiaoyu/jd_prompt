@@ -160,7 +160,7 @@ export default function App() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1.35fr_1fr] md:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[1.35fr_1fr] md:gap-8 items-start min-w-0">
           
           {/* LEFT: CONTROLS */}
           <div className={cn("flex-col gap-5 md:gap-6 min-w-0", mobileTab === 'settings' ? "flex" : "hidden md:flex")}>
@@ -351,7 +351,7 @@ export default function App() {
                   value={state.sref}
                   onChange={e => updateState({ sref: e.target.value })}
                   placeholder="輸入圖片檔名或網址，例如: brand-mood.jpg"
-                  className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow mb-3"
+                  className="w-full min-w-0 bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow mb-3"
                 />
               </div>
             </section>
@@ -721,7 +721,7 @@ export default function App() {
           </div>
 
           {/* RIGHT: CANVAS (PREVIEW) */}
-          <div className={cn("flex-col gap-5 md:gap-6", mobileTab === 'preview' ? "flex" : "hidden md:flex")}>
+          <div className={cn("flex-col gap-5 md:gap-6 min-w-0", mobileTab === 'preview' ? "flex" : "hidden md:flex")}>
             
             <div 
               className="rounded-[2rem] overflow-hidden border border-stone-200/80 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.08)] flex items-center justify-center bg-stone-100 max-w-full md:max-w-none mx-auto w-full md:w-auto transition-all duration-300"
@@ -769,7 +769,7 @@ export default function App() {
                 {isGeneral && "一般 AI 格式為完整英文描述句，Stylize、Chaos 等參數不會套用。"}
               </p>
 
-              <div className="font-mono text-[13.5px] leading-relaxed bg-stone-50 border border-stone-200/80 rounded-2xl p-5 whitespace-pre-wrap break-words text-stone-700 max-h-[350px] overflow-y-auto selection:bg-[#FF7A7B]/20">
+              <div className="font-mono text-[13.5px] leading-relaxed bg-stone-50 border border-stone-200/80 rounded-2xl p-5 whitespace-pre-wrap break-all text-stone-700 max-h-[350px] overflow-y-auto selection:bg-[#FF7A7B]/20">
                 {buildPrompt(state)}
               </div>
 
