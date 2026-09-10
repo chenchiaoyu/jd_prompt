@@ -107,7 +107,7 @@ export default function App() {
         <header className="mb-6 md:mb-10 pb-5 md:pb-6 border-b border-stone-200 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="flex flex-col gap-2">
             <h1 className="text-[clamp(24px,3.5vw,36px)] font-bold text-stone-900 leading-tight">
-              月心靈品牌影像生成提示詞
+              悅心靈品牌影像生成提示詞
             </h1>
           </div>
 
