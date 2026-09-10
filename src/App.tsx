@@ -105,9 +105,14 @@ export default function App() {
         
         {/* Header */}
         <header className="mb-6 md:mb-10 pb-5 md:pb-6 border-b border-stone-200 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-[clamp(24px,3.5vw,36px)] font-bold text-stone-900 leading-tight">
-              悅心靈品牌影像生成提示詞
+          <div className="flex items-center gap-3">
+            <img 
+              src="/logo_final-03.svg" 
+              alt="悅心靈 Logo" 
+              className="w-10 h-10 object-contain drop-shadow-xs" 
+            />
+            <h1 className="text-[clamp(22px,3vw,32px)] font-bold tracking-tight leading-tight" style={{ color: '#FF7A7B' }}>
+              悅心靈・品牌影像生成提示詞
             </h1>
           </div>
 
