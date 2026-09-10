@@ -58,7 +58,7 @@ export function Chip({
       )}
 
       <div className={cn("flex flex-col min-w-0 leading-tight", isCentered && !swatchHex && !isMulti ? "items-center text-center w-full" : "flex-1")}>
-        <span className="font-semibold text-[13px] sm:text-[13.5px] truncate block text-stone-800">
+        <span className="font-semibold text-[12px] sm:text-[13px] block text-stone-800">
           {title}
         </span>
         {sub && (

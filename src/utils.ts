@@ -23,7 +23,7 @@ const SINGLE_IMAGE_PHRASE = "a single unified photograph, one continuous full-bl
 const NO_PARAMS = "collage, split screen, grid layout, diptych, triptych, multiple panels, contact sheet, comic panels, frame within frame, color palette, color swatch, paint chips, color chart, color bars, color blocks, swatch card, mood board";
 
 export function buildPrompt(state: AppState): string {
-  const subjectText = state.subject.trim() || "a quiet natural still-life scene";
+  const subjectText = state.subject.trim();
   const contrast = CONTRAST.find(c => c.key === state.contrast) || CONTRAST[0];
   const shot = SHOTS.find(s => s.key === state.shot) || SHOTS[0];
   const noise = NOISE.find(n => n.key === state.noise) || NOISE[0];
@@ -54,9 +54,8 @@ export function buildPrompt(state: AppState): string {
     const item = EXCLUDE_OPTIONS.find(e => e.key === k);
     return item ? item.terms : "";
   }).filter(Boolean);
-
-  const srefUrl = state.sref.trim();
   
+  const srefUrl = state.sref.trim();
   const displayRatio = state.ratio === "custom" && state.customRatio ? state.customRatio : state.ratio;
 
   if (state.format === "general") {
@@ -65,11 +64,9 @@ export function buildPrompt(state: AppState): string {
     if (excludeTerms.length) {
       sentence += ` Please avoid including any ${excludeTerms.join(", ")} in the image.`;
     }
+    sentence += ` Please strongly set the overall color tone of the image to the specified color (Hexcode: ${hex}).`;
     if (srefUrl) {
-      sentence += ` Please use this image as a style reference: ${srefUrl}.`;
-      sentence += ` Also, strongly blend the specified color (Hexcode: ${hex}) into this reference image, changing its original color tone.`;
-    } else {
-      sentence += ` Please strongly set the overall color tone of the image to the specified color (Hexcode: ${hex}).`;
+      sentence += ` In addition, use the reference image at ${srefUrl} specifically as a visual guide for object composition, subject layout, and theme structure.`;
     }
     return sentence;
   }
@@ -77,12 +74,16 @@ export function buildPrompt(state: AppState): string {
   // Midjourney output
   let tail = ` --ar ${displayRatio.replace(':', ':')} --s ${state.stylize}`;
   if (state.chaos > 0) tail += ` --chaos ${state.chaos}`;
-  if (srefUrl) tail += ` --sref ${srefUrl} --sw ${state.srefWeight}`;
-
+  
   let noList = NO_PARAMS;
   if (excludeTerms.length) noList += ", " + excludeTerms.join(", ");
 
   tail += ` --v 6.0 --style raw --no ${noList}`;
+
+  if (srefUrl) {
+    const iwVal = (state.srefWeight / 500).toFixed(1);
+    return `${srefUrl} ${parts.join(", ")}${tail} --iw ${iwVal}`;
+  }
 
   return parts.join(", ") + tail;
 }

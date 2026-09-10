@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, ExternalLink } from 'lucide-react';
 import { AppState } from './types';
 import logoSvg from './assets/logo_final-02.png';
 import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
@@ -127,6 +127,15 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-2.5">
+            <a
+              href="https://chenchiaoyu.github.io/jd_colorgradient/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-300/60 shadow-xs transition-all active:scale-95 cursor-pointer"
+            >
+              <ExternalLink className="w-4 h-4 text-stone-500" />
+              <span>品牌漸層色搭配參考</span>
+            </a>
             <button
               type="button"
               onClick={() => setShowGuideModal(true)}
@@ -324,19 +333,19 @@ export default function App() {
                 rows={2} 
                 value={state.subject}
                 onChange={e => updateState({ subject: e.target.value })}
-                className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 resize-y placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow"
+                className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 resize-y placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow mb-3"
                 placeholder="點選上方物件擇一加入，或直接輸入自己的題材：地平線上的第一道光、掌心捧著的植物…"
               />
 
-              {/* 風格參考圖片 (選填) */}
-              <div className="mt-8 border-t border-stone-100 pt-6">
+              {/* 構圖與物件參考圖片 (選填) */}
+              <div className="mt-6 pt-5 border-t border-stone-100">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[11px] tracking-widest uppercase text-stone-400 font-bold">補充設定・風格參考圖片 (選填)</span>
+                  <span className="text-[11px] tracking-widest uppercase text-stone-400 font-bold">補充設定・構圖與物件參考圖片 (選填)</span>
                   <InfoPop 
                     id="info-sref" 
                     isOpen={openInfo["sref"] || false} 
                     onToggle={() => toggleInfo("sref")}
-                    text={<>輸入圖片檔名或網址。一般 AI 會在指令註記請參考該圖；Midjourney 則會作為 --sref 參數套用。留空則不套用。</>}
+                    text={<>輸入圖片檔名或網址。AI 會將此圖作為物件主題與構圖參考，保留您所選的色彩與光影設定，不覆蓋顏色。</>}
                   />
                   <button 
                     type="button" 
@@ -351,7 +360,7 @@ export default function App() {
                   value={state.sref}
                   onChange={e => updateState({ sref: e.target.value })}
                   placeholder="輸入圖片檔名或網址，例如: brand-mood.jpg"
-                  className="w-full min-w-0 bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow mb-3"
+                  className="w-full min-w-0 bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow"
                 />
               </div>
             </section>
@@ -654,8 +663,8 @@ export default function App() {
                     </label>
                   </div>
                   <div className="bg-stone-50/50 p-5 rounded-2xl border border-stone-200/60 mb-2">
-                    <div className="flex items-center justify-between gap-3 mb-3">
-                      <label className="text-[14px] font-semibold">參考強度 (--sw)</label>
+                    <div className="flex items-center justify-between gap-3 mb-3 mt-1">
+                      <label className="text-[14px] font-semibold">構圖參考權重 (--iw)</label>
                       <span className="font-mono text-[13px] text-stone-500 bg-stone-100 px-2 py-1 rounded-lg">{state.srefWeight}</span>
                     </div>
                     <input 
