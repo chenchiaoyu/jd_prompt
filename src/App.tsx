@@ -94,25 +94,6 @@ export default function App() {
     }
   };
 
-  const handleDownloadGuide = () => {
-    fetch('/PROMPT_TOOL_MASTER_GUIDE.md')
-      .then(res => res.text())
-      .then(text => {
-        const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = '悅心靈_提示詞工具與部署完整指南.md';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      })
-      .catch(() => {
-        alert('下載失敗，請直接從專案根目錄取得 PROMPT_TOOL_MASTER_GUIDE.md');
-      });
-  };
-
   const currentColorGroup = PALETTES.find(p => p.key === state.color) || PALETTES[0];
   const currentShade = currentColorGroup.shades.find(s => s.key === state.shade) || currentColorGroup.shades[1];
   const currentRatio = RATIOS.find(r => r.key === state.ratio) || RATIOS[0];
@@ -135,15 +116,7 @@ export default function App() {
             </h1>
           </div>
 
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <button
-              type="button"
-              onClick={handleDownloadGuide}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-white text-stone-700 hover:bg-stone-50 border border-stone-200/80 shadow-xs transition-all active:scale-95 cursor-pointer"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#FF7A7B' }}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-              <span>下載完整指南與藍本 (MD)</span>
-            </button>
+          <div className="flex items-center gap-2.5">
             <button
               type="button"
               onClick={() => setShowGuideModal(true)}
