@@ -120,9 +120,9 @@ export default function App() {
             <button
               type="button"
               onClick={() => setShowGuideModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-rose-50 text-rose-700 hover:bg-rose-100/90 border border-rose-200/80 shadow-xs transition-all active:scale-95"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold bg-[#FF7A7B]/10 text-[#FF7A7B] hover:bg-[#FF7A7B]/20 border border-[#FF7A7B]/30 shadow-xs transition-all active:scale-95 cursor-pointer"
             >
-              <BookOpen className="w-4 h-4 text-rose-500" />
+              <BookOpen className="w-4 h-4" style={{ color: '#FF7A7B' }} />
               <span>網頁使用說明</span>
             </button>
           </div>
@@ -186,7 +186,7 @@ export default function App() {
                     </>}
                   />
                 </div>
-                <span className="text-[11px] font-semibold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200/70">
+                <span className="text-[11px] font-semibold text-[#FF7A7B] bg-[#FF7A7B]/10 px-2.5 py-0.5 rounded-full border border-[#FF7A7B]/30">
                   單一選擇
                 </span>
               </div>
@@ -199,8 +199,8 @@ export default function App() {
                   className={cn(
                     "w-full appearance-none border rounded-2xl p-4 sm:p-4.5 text-left transition-all duration-200 active:scale-[0.99] flex items-center justify-between gap-3 relative overflow-hidden cursor-pointer",
                     state.color === PRIMARY_PALETTE.key
-                      ? "bg-rose-50/90 border-rose-300 text-rose-950 shadow-[0_4px_16px_-4px_rgba(244,63,94,0.25)] ring-1 ring-rose-200/70"
-                      : "bg-stone-50/70 hover:bg-white border-stone-200/80 hover:border-rose-300 text-stone-700 shadow-xs"
+                      ? "bg-[#FF7A7B]/10 border-[#FF7A7B] text-stone-900 shadow-[0_4px_16px_-4px_rgba(255,122,123,0.3)] ring-1 ring-[#FF7A7B]/40"
+                      : "bg-stone-50/70 hover:bg-white border-stone-200/80 hover:border-[#FF7A7B]/50 text-stone-700 shadow-xs"
                   )}
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
@@ -210,7 +210,7 @@ export default function App() {
                         style={{ backgroundColor: PRIMARY_PALETTE.hex }}
                       />
                       {state.color === PRIMARY_PALETTE.key && (
-                        <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-rose-500 border-2 border-white flex items-center justify-center shadow-xs">
+                        <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#FF7A7B] border-2 border-white flex items-center justify-center shadow-xs">
                           <span className="w-2 h-2 rounded-full bg-white" />
                         </span>
                       )}
@@ -285,7 +285,7 @@ export default function App() {
                 <button 
                   type="button" 
                   onClick={() => updateState({ subject: "" })}
-                  className="appearance-none border border-rose-300 bg-rose-50 text-rose-600 text-[11.5px] font-bold cursor-pointer py-1 px-3 rounded-full hover:bg-rose-500 hover:text-white transition-all active:scale-95"
+                  className="appearance-none border border-[#FF7A7B]/40 bg-[#FF7A7B]/10 text-[#FF7A7B] text-[11.5px] font-bold cursor-pointer py-1 px-3 rounded-full hover:bg-[#FF7A7B] hover:text-white transition-all active:scale-95"
                 >
                   清除
                 </button>
@@ -314,7 +314,7 @@ export default function App() {
                 rows={2} 
                 value={state.subject}
                 onChange={e => updateState({ subject: e.target.value })}
-                className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 resize-y placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 transition-shadow"
+                className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 resize-y placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow"
                 placeholder="點選上方物件擇一加入，或直接輸入自己的題材：地平線上的第一道光、掌心捧著的植物…"
               />
 
@@ -331,7 +331,7 @@ export default function App() {
                   <button 
                     type="button" 
                     onClick={() => updateState({ sref: "" })}
-                    className="ml-auto appearance-none border border-rose-300 bg-rose-50 text-rose-600 text-[11.5px] font-bold cursor-pointer py-1.5 px-3.5 rounded-full hover:bg-rose-500 hover:text-white transition-all active:scale-95"
+                    className="ml-auto appearance-none border border-[#FF7A7B]/40 bg-[#FF7A7B]/10 text-[#FF7A7B] text-[11.5px] font-bold cursor-pointer py-1.5 px-3.5 rounded-full hover:bg-[#FF7A7B] hover:text-white transition-all active:scale-95"
                   >
                     清除輸入
                   </button>
@@ -341,7 +341,7 @@ export default function App() {
                   value={state.sref}
                   onChange={e => updateState({ sref: e.target.value })}
                   placeholder="輸入圖片檔名或網址，例如: brand-mood.jpg"
-                  className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-rose-300 transition-shadow mb-3"
+                  className="w-full bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-[14px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#FF7A7B]/40 focus:border-[#FF7A7B] transition-shadow mb-3"
                 />
               </div>
             </section>
@@ -395,7 +395,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setShowGenreModal(true)}
-                      className="w-5 h-5 rounded-full bg-stone-100 border border-stone-200 text-stone-500 hover:border-rose-400 hover:text-rose-700 flex items-center justify-center transition-all text-[11px] font-bold shadow-xs active:scale-95 cursor-pointer"
+                      className="w-5 h-5 rounded-full bg-stone-100 border border-stone-200 text-stone-500 hover:border-[#FF7A7B] hover:text-[#FF7A7B] flex items-center justify-center transition-all text-[11px] font-bold shadow-xs active:scale-95 cursor-pointer"
                       title="查看各攝影流派名詞詳細解析與 Google 搜尋"
                     >
                       i
@@ -456,14 +456,14 @@ export default function App() {
                 <div className="bg-stone-50/70 border border-stone-200/80 rounded-2xl p-4 mb-3">
                   <div className="flex items-center justify-between gap-3 mb-2">
                     <span className="text-[12px] font-bold text-stone-700 tracking-wide uppercase">留白比例 (Whitespace)</span>
-                    <span className="font-mono text-[12px] font-semibold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-lg border border-rose-200/60">{state.whitespace}%</span>
+                    <span className="font-mono text-[12px] font-semibold text-[#FF7A7B] bg-[#FF7A7B]/10 px-2 py-0.5 rounded-lg border border-[#FF7A7B]/30">{state.whitespace}%</span>
                   </div>
                   <input 
                     type="range" 
                     min="0" max="100" step="5" 
                     value={state.whitespace}
                     onChange={e => updateState({ whitespace: parseInt(e.target.value, 10) })}
-                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-rose-500"
+                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#FF7A7B]"
                   />
                   <div className="flex justify-between text-[11.5px] text-stone-400 mt-1.5 font-medium">
                     <span>畫面滿版</span>
@@ -601,7 +601,7 @@ export default function App() {
 
               <div className={`transition-opacity duration-200 ${isGeneral ? 'opacity-40 pointer-events-none hidden' : ''}`}>
                   <div className="flex items-center justify-between gap-3 mb-3">
-                    <label className="text-[14px] font-semibold text-rose-600/80 flex items-center gap-2">
+                    <label className="text-[14px] font-semibold flex items-center gap-2" style={{ color: '#FF7A7B' }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                       Midjourney 專屬參數
                     </label>
@@ -617,7 +617,7 @@ export default function App() {
                       value={state.srefWeight}
                       disabled={isGeneral}
                       onChange={e => updateState({ srefWeight: parseInt(e.target.value, 10) })}
-                      className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-rose-400"
+                      className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#FF7A7B]"
                     />
                     <div className="flex justify-between text-[11.5px] text-stone-400 mt-2 mb-6 font-medium">
                       <span>極低 (0)</span>
@@ -635,7 +635,7 @@ export default function App() {
                       value={state.stylize}
                       disabled={isGeneral}
                       onChange={e => updateState({ stylize: parseInt(e.target.value, 10) })}
-                      className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-rose-400"
+                      className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#FF7A7B]"
                     />
                     <p className="text-[12px] leading-relaxed text-stone-400 mt-2 mb-5">
                       數值越低越貼近文字描述；越高則 AI 美感詮釋越多。建議維持中低值（100–250）。
@@ -651,7 +651,7 @@ export default function App() {
                       value={state.chaos}
                       disabled={isGeneral}
                       onChange={e => updateState({ chaos: parseInt(e.target.value, 10) })}
-                      className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-rose-400"
+                      className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#FF7A7B]"
                     />
                     <div className="flex justify-between text-[11.5px] text-stone-400 mt-2 font-medium">
                       <span>穩定一致</span>
@@ -667,7 +667,7 @@ export default function App() {
                 setMobileTab('preview');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }} 
-              className="md:hidden w-full py-4 bg-rose-500 text-white font-bold rounded-2xl mt-2 mb-6 shadow-md shadow-rose-200 active:scale-[0.98] transition-transform"
+              className="md:hidden w-full py-4 bg-[#FF7A7B] text-white font-bold rounded-2xl mt-2 mb-6 shadow-md shadow-[0_4px_16px_-4px_rgba(255,122,123,0.4)] active:scale-[0.98] transition-transform cursor-pointer"
             >
               設定完成，檢視並複製提示詞 →
             </button>
@@ -722,14 +722,15 @@ export default function App() {
                 {isGeneral && "一般 AI 格式為完整英文描述句，Stylize、Chaos 等參數不會套用。"}
               </p>
 
-              <div className="font-mono text-[13.5px] leading-relaxed bg-stone-50 border border-stone-200/80 rounded-2xl p-5 whitespace-pre-wrap break-words text-stone-700 max-h-[350px] overflow-y-auto selection:bg-rose-200">
+              <div className="font-mono text-[13.5px] leading-relaxed bg-stone-50 border border-stone-200/80 rounded-2xl p-5 whitespace-pre-wrap break-words text-stone-700 max-h-[350px] overflow-y-auto selection:bg-[#FF7A7B]/20">
                 {buildPrompt(state)}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 mt-5">
                 <button 
                   onClick={handleCopy}
-                  className="appearance-none border border-rose-500 bg-rose-500 text-white rounded-2xl px-6 py-3.5 text-[14px] font-bold cursor-pointer flex items-center justify-center gap-2 hover:bg-rose-600 transition-colors shadow-sm shadow-rose-200 active:scale-[0.98]"
+                  className="appearance-none border text-white rounded-2xl px-6 py-3.5 text-[14px] font-bold cursor-pointer flex items-center justify-center gap-2 transition-colors shadow-sm active:scale-[0.98]"
+                  style={{ backgroundColor: '#FF7A7B', borderColor: '#FF7A7B' }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                   複製 Prompt
@@ -782,8 +783,7 @@ export default function App() {
 
         </div>
         
-        <footer className="mt-12 mb-8 text-[12.5px] text-stone-400 max-w-[70ch] leading-relaxed">
-          提示詞生成工具 · 用於協助制定攝影風格與品牌視覺的一致性；建議實際測試並挑選穩定輸出後，回填為正式規範。
+        <footer className="mt-12 mb-8">
         </footer>
       </div>
 
@@ -792,7 +792,7 @@ export default function App() {
         "fixed left-1/2 bottom-8 -translate-x-1/2 bg-stone-800 text-white text-[13.5px] font-semibold px-5 py-3 rounded-full z-20 transition-all duration-300 pointer-events-none shadow-xl flex items-center gap-2",
         toast ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"
       )}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400"><path d="M20 6L9 17l-5-5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#FF7A7B' }}><path d="M20 6L9 17l-5-5"/></svg>
         已複製 Copied
       </div>
 

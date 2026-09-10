@@ -25,7 +25,7 @@ export function GenreModal({ isOpen, onClose, selectedGenreKey, onSelectGenre }:
         {/* Header */}
         <div className="flex items-start justify-between border-b border-stone-200 pb-5">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center shadow-sm">
+            <div className="w-10 h-10 rounded-2xl bg-[#FF7A7B]/15 text-[#FF7A7B] flex items-center justify-center shadow-sm">
               <Camera className="w-5 h-5" />
             </div>
             <div>
@@ -56,7 +56,7 @@ export function GenreModal({ isOpen, onClose, selectedGenreKey, onSelectGenre }:
                 key={g.key}
                 className={`bg-white border rounded-2xl p-5 transition-all ${
                   isSelected 
-                    ? "border-rose-300 ring-2 ring-rose-200/60 shadow-[0_4px_16px_-4px_rgba(244,63,94,0.15)]" 
+                    ? "border-[#FF7A7B] ring-2 ring-[#FF7A7B]/30 shadow-[0_4px_16px_-4px_rgba(255,122,123,0.2)]" 
                     : "border-stone-200/80 hover:border-stone-300 shadow-sm"
                 }`}
               >
@@ -67,7 +67,7 @@ export function GenreModal({ isOpen, onClose, selectedGenreKey, onSelectGenre }:
                       {g.name}
                     </span>
                     {g.sub && (
-                      <span className="text-xs text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full font-medium border border-rose-200/60">
+                      <span className="text-xs text-[#FF7A7B] bg-[#FF7A7B]/10 px-2.5 py-0.5 rounded-full font-medium border border-[#FF7A7B]/30">
                         {g.sub}
                       </span>
                     )}
@@ -99,7 +99,7 @@ export function GenreModal({ isOpen, onClose, selectedGenreKey, onSelectGenre }:
                       }}
                       className={`text-xs px-3.5 py-1 rounded-full font-semibold transition-all ${
                         isSelected 
-                          ? "bg-rose-500 text-white cursor-default" 
+                          ? "bg-[#FF7A7B] text-white cursor-default shadow-xs" 
                           : "bg-stone-800 text-white hover:bg-stone-700 active:scale-95"
                       }`}
                     >

@@ -44,8 +44,8 @@ export function Chip({
         !swatchHex && !isMulti && !sub && !isCentered ? "items-center text-left" : "",
         // Active / Inactive states
         active
-          ? "bg-rose-50 border-rose-300 text-rose-900 shadow-[0_2px_12px_-4px_rgba(244,63,94,0.25)] ring-1 ring-rose-200/60"
-          : "bg-stone-50/70 hover:bg-white border-stone-200/80 hover:border-rose-300 text-stone-700 shadow-xs",
+          ? "bg-[#FF7A7B]/10 border-[#FF7A7B] text-stone-900 shadow-[0_2px_12px_-4px_rgba(255,122,123,0.25)] ring-1 ring-[#FF7A7B]/40"
+          : "bg-stone-50/70 hover:bg-white border-stone-200/80 hover:border-[#FF7A7B]/60 text-stone-700 shadow-xs",
         className
       )}
       {...props}
@@ -64,7 +64,7 @@ export function Chip({
         {sub && (
           <span className={cn(
             "text-[11px] leading-tight truncate block mt-0.5 font-normal",
-            active ? "text-rose-600/90" : "text-stone-400"
+            active ? "text-[#FF7A7B]" : "text-stone-400"
           )}>
             {sub}
           </span>
@@ -74,7 +74,7 @@ export function Chip({
       {isMulti && (
         <div className={cn(
           "w-4 h-4 rounded-md border flex items-center justify-center transition-colors shrink-0",
-          active ? "bg-rose-500 border-rose-500 text-white" : "border-stone-300 bg-white"
+          active ? "bg-[#FF7A7B] border-[#FF7A7B] text-white" : "border-stone-300 bg-white"
         )}>
           {active && <Check className="w-3 h-3 stroke-[3]" />}
         </div>
@@ -101,8 +101,8 @@ export function InfoPop({ id, text, isOpen, onToggle }: InfoPopProps) {
         className={cn(
           "w-5 h-5 rounded-full text-[11px] font-bold leading-none inline-flex items-center justify-center transition-all shrink-0 cursor-pointer",
           isOpen
-            ? "bg-rose-500 border border-rose-500 text-white shadow-xs"
-            : "bg-stone-100 border border-stone-200 text-stone-500 hover:border-rose-400 hover:text-rose-700"
+            ? "bg-[#FF7A7B] border border-[#FF7A7B] text-white shadow-xs"
+            : "bg-stone-100 border border-stone-200 text-stone-500 hover:border-[#FF7A7B] hover:text-[#FF7A7B]"
         )}
         title="說明"
       >

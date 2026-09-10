@@ -21,7 +21,7 @@ export function GuideModal({ isOpen, onClose }: GuideModalProps) {
         {/* Header */}
         <div className="flex items-start justify-between border-b border-stone-200 pb-5">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center shadow-sm">
+            <div className="w-10 h-10 rounded-2xl bg-[#FF7A7B]/15 text-[#FF7A7B] flex items-center justify-center shadow-sm">
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
@@ -44,7 +44,7 @@ export function GuideModal({ isOpen, onClose }: GuideModalProps) {
         {/* 3 Core Principles */}
         <div className="bg-white border border-stone-200/80 rounded-2xl p-5 shadow-sm">
           <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-rose-500" />
+            <Sparkles className="w-4 h-4" style={{ color: '#FF7A7B' }} />
             三大核心美學心法
           </h3>
           <div className="grid sm:grid-cols-3 gap-3.5 text-xs sm:text-[13px] text-stone-600 leading-relaxed">
