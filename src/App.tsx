@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { AppState } from './types';
-import logoSvg from './assets/logo_final-02.png';
+const logoSvg = 'https://raw.githubusercontent.com/chenchiaoyu/jd_prompt/5dbc8e331dcff68ddb6af8b0da98ef44027dbc81/public/logo_final_Logotype01_R.svg';
 import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, MJ_VERSIONS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
 import { buildPrompt, cn } from './utils';
 import { Chip, InfoPop } from './components';
