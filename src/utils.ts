@@ -1,5 +1,5 @@
 import { AppState } from './types';
-import { PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS } from './data';
+import { PALETTES, COLOR_WEIGHTS, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS } from './data';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -17,7 +17,8 @@ function colorPhrase(state: AppState) {
   const c = PALETTES.find(p => p.key === state.color) || PALETTES[0];
   const s = c.shades.find(sh => sh.key === state.shade) || c.shades[1];
   const hex = s?.hex || c.hex;
-  return `soft ambient lighting tinted in color hex ${hex}`;
+  const cw = COLOR_WEIGHTS.find(w => w.key === state.colorWeight) || COLOR_WEIGHTS[1];
+  return `soft ambient lighting tinted in color hex ${hex}, ${cw.weightPhrase}`;
 }
 
 const SINGLE_IMAGE_PHRASE = "a single unified photograph, one continuous full-bleed scene, not a collage, not a grid, not a mood board";

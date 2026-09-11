@@ -23,17 +23,20 @@ export interface Option {
   phrase?: string;
   use?: string; // For ratios
   ar?: string;  // For ratios
+  ratioCss?: string; // For ratio box preview
   terms?: string; // For exclusions
   description?: string;
   suitableFor?: string;
   searchTerm?: string;
   visualTraits?: string[];
+  weightPhrase?: string; // For color weights
 }
 
 export interface AppState {
   projectName: string;
   color: string;
   shade: string;
+  colorWeight: string;
   subject: string;
   genre: string;
   film: string;

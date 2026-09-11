@@ -120,6 +120,12 @@ export const PALETTES: Palette[] = [
 export const PRIMARY_PALETTE = PALETTES[0];
 export const SECONDARY_PALETTES = PALETTES.slice(1);
 
+export const COLOR_WEIGHTS: Option[] = [
+  { key: "subtle", name: "點綴・融入", sub: "微量色彩點綴", weightPhrase: "subtle accent color touch, delicate color hint" },
+  { key: "moderate", name: "平衡・主導", sub: "自然舒適比例", weightPhrase: "balanced color presence, natural harmonious color harmony" },
+  { key: "dominant", name: "濃郁・沉浸", sub: "強烈色彩包覆", weightPhrase: "dominant rich color saturation, deeply immersive color atmosphere" }
+];
+
 export const CONTRAST: Option[] = [
   { key: "high", name: "高對比", phrase: "high contrast lighting, strong highlights and deep shadows, dramatic tonal range" },
   { key: "mid", name: "中對比", phrase: "medium contrast lighting, balanced highlights and shadows, natural tonal range" },
@@ -141,15 +147,15 @@ export const SHOTS: Option[] = [
 ];
 
 export const RATIOS: Option[] = [
-  { key: "1:1", name: "1:1", use: "IG 貼文", ar: "1/1" },
-  { key: "4:5", name: "4:5", use: "IG 直式", ar: "4/5" },
-  { key: "3:4", name: "3:4", use: "直式", ar: "3/4" },
-  { key: "9:16", name: "9:16", use: "限動 / Reels", ar: "9/16" },
-  { key: "4:3", name: "4:3", use: "橫式", ar: "4/3" },
-  { key: "16:9", name: "16:9", use: "橫幅 / 封面", ar: "16/9" },
-  { key: "70:99", name: "A4", use: "印刷・直式", ar: "70/99" },
-  { key: "21:9", name: "21:9", use: "超寬", ar: "21/9" },
-  { key: "custom", name: "自訂", use: "自行輸入比例", ar: "1/1" }
+  { key: "1:1", name: "1:1", use: "IG 貼文", ar: "1/1", ratioCss: "w-5 h-5" },
+  { key: "4:5", name: "4:5", use: "IG 直式", ar: "4/5", ratioCss: "w-4 h-5" },
+  { key: "3:4", name: "3:4", use: "直式", ar: "3/4", ratioCss: "w-4 h-[18px]" },
+  { key: "9:16", name: "9:16", use: "限動 / Reels", ar: "9/16", ratioCss: "w-3 h-5.5" },
+  { key: "4:3", name: "4:3", use: "橫式", ar: "4/3", ratioCss: "w-5.5 h-4" },
+  { key: "16:9", name: "16:9", use: "橫幅 / 封面", ar: "16/9", ratioCss: "w-6 h-3.5" },
+  { key: "70:99", name: "A4", use: "印刷・直式", ar: "70/99", ratioCss: "w-4 h-5.5" },
+  { key: "21:9", name: "21:9", use: "超寬", ar: "21/9", ratioCss: "w-7 h-3" },
+  { key: "custom", name: "自訂", use: "自行輸入比例", ar: "1/1", ratioCss: "w-4.5 h-4.5 rounded-full" }
 ];
 
 export const FILMS: Option[] = [

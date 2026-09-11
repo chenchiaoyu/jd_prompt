@@ -7,6 +7,7 @@ interface ChipProps {
   title: string;
   sub?: string;
   swatchHex?: string;
+  ratioCss?: string;
   isMulti?: boolean;
   align?: 'left' | 'center';
   className?: string;
@@ -19,12 +20,13 @@ export function Chip({
   title, 
   sub, 
   swatchHex, 
+  ratioCss,
   isMulti = false, 
   align,
   className, 
   ...props 
 }: ChipProps) {
-  const isCentered = align === 'center' || (!sub && !swatchHex && !isMulti && align !== 'left');
+  const isCentered = align === 'center' || (!sub && !swatchHex && !ratioCss && !isMulti && align !== 'left');
 
   return (
     <button
@@ -35,13 +37,13 @@ export function Chip({
       className={cn(
         "appearance-none border rounded-2xl transition-all duration-150 active:scale-[0.98] w-full text-left relative select-none cursor-pointer flex",
         // Padding & Min-height for visual consistency
-        sub || swatchHex ? "p-3 min-h-[58px]" : "px-3.5 py-2.5 min-h-[44px]",
+        sub || swatchHex || ratioCss ? "p-3 min-h-[58px]" : "px-3.5 py-2.5 min-h-[44px]",
         // Layout mode
-        swatchHex ? "flex-row items-center gap-2.5 text-left" : "",
+        swatchHex || ratioCss ? "flex-row items-center gap-3 text-left" : "",
         isMulti ? "flex-row items-center justify-between gap-2 text-left" : "",
-        !swatchHex && !isMulti && sub ? "flex-col justify-center text-left gap-0.5" : "",
-        !swatchHex && !isMulti && !sub && isCentered ? "items-center justify-center text-center" : "",
-        !swatchHex && !isMulti && !sub && !isCentered ? "items-center text-left" : "",
+        !swatchHex && !ratioCss && !isMulti && sub ? "flex-col justify-center text-left gap-0.5" : "",
+        !swatchHex && !ratioCss && !isMulti && !sub && isCentered ? "items-center justify-center text-center" : "",
+        !swatchHex && !ratioCss && !isMulti && !sub && !isCentered ? "items-center text-left" : "",
         // Active / Inactive states
         active
           ? "bg-[#FF7A7B]/10 border-[#FF7A7B] text-stone-900 shadow-[0_2px_12px_-4px_rgba(255,122,123,0.25)] ring-1 ring-[#FF7A7B]/40"
@@ -57,7 +59,17 @@ export function Chip({
         />
       )}
 
-      <div className={cn("flex flex-col min-w-0 leading-tight", isCentered && !swatchHex && !isMulti ? "items-center text-center w-full" : "flex-1")}>
+      {ratioCss && (
+        <span className="flex-none flex items-center justify-center w-7">
+          <span className={cn(
+            "border-2 rounded-none transition-colors",
+            ratioCss,
+            active ? "border-[#FF7A7B] bg-[#FF7A7B]/20" : "border-stone-300 bg-stone-100"
+          )} />
+        </span>
+      )}
+
+      <div className={cn("flex flex-col min-w-0 leading-tight", isCentered && !swatchHex && !ratioCss && !isMulti ? "items-center text-center w-full" : "flex-1")}>
         <span className="font-semibold text-[12px] sm:text-[13px] block text-stone-800">
           {title}
         </span>

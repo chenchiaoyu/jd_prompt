@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { AppState } from './types';
 const logoSvg = 'https://raw.githubusercontent.com/chenchiaoyu/jd_prompt/5dbc8e331dcff68ddb6af8b0da98ef44027dbc81/public/logo_final_Logotype01_R.svg';
-import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, MJ_VERSIONS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
+import { PALETTES, PRIMARY_PALETTE, SECONDARY_PALETTES, COLOR_WEIGHTS, CONTRAST, SHOTS, RATIOS, FILMS, GENRES, NOISE, EXCLUDE_OPTIONS, FORMATS, MJ_VERSIONS, DEFAULT_SUFFIX, STORAGE_KEY } from './data';
 import { buildPrompt, cn } from './utils';
 import { Chip, InfoPop } from './components';
 import { GuideModal } from './components/GuideModal';
@@ -12,6 +12,7 @@ const DEFAULT_STATE: AppState = {
   projectName: "品牌專用",
   color: "rose",
   shade: "base",
+  colorWeight: "moderate",
   subject: "",
   genre: "minimalist",
   film: "none",
@@ -289,6 +290,28 @@ export default function App() {
                 ))}
               </div>
 
+              {/* 色彩影響程度選擇 */}
+              <div className="flex items-center gap-2 mt-5 mb-2.5">
+                <span className="text-[11px] tracking-widest uppercase text-stone-400 font-bold">色彩 Hexcode 影響程度</span>
+                <InfoPop 
+                  id="info-color-weight" 
+                  isOpen={openInfo["color-weight"] || false} 
+                  onToggle={() => toggleInfo("color-weight")}
+                  text={<>決定所選色彩 Hexcode 在畫面中的佔比與融入程度，從微量點綴、自然平衡到濃郁沉浸。</>}
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-2.5 mb-6">
+                {COLOR_WEIGHTS.map(w => (
+                  <Chip
+                    key={w.key}
+                    active={state.colorWeight === w.key}
+                    title={w.name}
+                    sub={w.sub}
+                    onClick={() => updateState({ colorWeight: w.key })}
+                  />
+                ))}
+              </div>
+
               {/* STEP 3: 對應主題物件 */}
               <div className="flex items-center justify-between gap-2 mt-6 mb-3">
                 <div className="flex items-center gap-2">
@@ -363,6 +386,7 @@ export default function App() {
                       active={state.ratio === r.key}
                       title={r.name}
                       sub={r.use}
+                      ratioCss={r.ratioCss}
                       onClick={() => updateState({ ratio: r.key })}
                     />
                   ))}
