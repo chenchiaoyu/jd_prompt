@@ -30,7 +30,7 @@ export const PALETTES: Palette[] = [
     phrase: "the scene rendered in tranquil violet, soft amethyst and lavender hues, quiet and spiritual",
     mood: "a peaceful, spiritual atmosphere, poetic and deeply calming",
     shades: [
-      { key: "tint", label: "TINT", hex: "#F5EDF6", depthLabel: "a very pale violet luminous tint" },
+      { key: "tint", label: "TINT", hex: "#F7EEF7", depthLabel: "a very pale violet luminous tint" },
       { key: "soft", label: "SOFT", hex: "#EAD7EA", depthLabel: "a soft lavender hue" },
       { key: "base", label: "BASE", hex: "#C78AC8", depthLabel: "the base amethyst tone" },
       { key: "deep", label: "DEEP", hex: "#9439A2", depthLabel: "a deep rich violet shade" }
@@ -45,7 +45,7 @@ export const PALETTES: Palette[] = [
     phrase: "the scene rendered in vast open sky blue, clear azure and airy daylight hues",
     mood: "an open, liberating atmosphere, clear-sighted and expansive",
     shades: [
-      { key: "tint", label: "TINT", hex: "#EDF0F6", depthLabel: "a pale airy azure luminous tint" },
+      { key: "tint", label: "TINT", hex: "#EDF1F7", depthLabel: "a pale airy azure luminous tint" },
       { key: "soft", label: "SOFT", hex: "#D7DEEA", depthLabel: "a soft light sky blue hue" },
       { key: "base", label: "BASE", hex: "#88A0C7", depthLabel: "the base clear sky blue tone" },
       { key: "deep", label: "DEEP", hex: "#3F5DB1", depthLabel: "a deep twilight azure shade" }
@@ -75,7 +75,7 @@ export const PALETTES: Palette[] = [
     phrase: "the scene rendered in quiet mossy green, soft sage and deep forest green hues",
     mood: "a hushed, introspective atmosphere, settled and restrained",
     shades: [
-      { key: "tint", label: "TINT", hex: "#ECF5F2", depthLabel: "a pale sage luminous tint" },
+      { key: "tint", label: "TINT", hex: "#ECF6F5", depthLabel: "a pale sage luminous tint" },
       { key: "soft", label: "SOFT", hex: "#D4EAE6", depthLabel: "a soft muted sage green hue" },
       { key: "base", label: "BASE", hex: "#78B4AA", depthLabel: "the base moss green tone" },
       { key: "deep", label: "DEEP", hex: "#00754A", depthLabel: "a deep rich mossy-green shade" }
@@ -90,7 +90,7 @@ export const PALETTES: Palette[] = [
     phrase: "the scene rendered in fresh botanical green, tender herbal leaves and gentle sunlight hues",
     mood: "a vibrant yet gentle atmosphere, rejuvenating and naturally alive",
     shades: [
-      { key: "tint", label: "TINT", hex: "#F0F5EC", depthLabel: "a pale tender sprout luminous tint" },
+      { key: "tint", label: "TINT", hex: "#EFF6ED", depthLabel: "a pale tender sprout luminous tint" },
       { key: "soft", label: "SOFT", hex: "#D9EAD6", depthLabel: "a soft meadow green hue" },
       { key: "base", label: "BASE", hex: "#C0CEA8", depthLabel: "the base fresh botanical green tone" },
       { key: "deep", label: "DEEP", hex: "#407215", depthLabel: "a deep rich herbal green shade" }
@@ -105,7 +105,7 @@ export const PALETTES: Palette[] = [
     phrase: "the scene rendered in warm amber, golden brown and muted sandstone color tones",
     mood: "a grounded, abundant atmosphere, ritualistic and steady",
     shades: [
-      { key: "tint", label: "TINT", hex: "#F8F0E2", depthLabel: "a pale warm luminous tint" },
+      { key: "tint", label: "TINT", hex: "#FCF7F0", depthLabel: "a pale warm luminous tint" },
       { key: "soft", label: "SOFT", hex: "#F1E0C2", depthLabel: "a soft muted amber hue" },
       { key: "base", label: "BASE", hex: "#DCB163", depthLabel: "the base warm amber tone" },
       { key: "deep", label: "DEEP", hex: "#8A5A00", depthLabel: "a deep warm golden brown shade" }
