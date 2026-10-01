@@ -123,7 +123,7 @@ export const SECONDARY_PALETTES = PALETTES.slice(1);
 export const COLOR_WEIGHTS: Option[] = [
   { key: "subtle", name: "點綴・融入", sub: "微量色彩點綴", weightPhrase: "subtle accent color touch, delicate color hint" },
   { key: "moderate", name: "平衡・主導", sub: "自然舒適比例", weightPhrase: "balanced color presence, natural harmonious color harmony" },
-  { key: "dominant", name: "濃郁・沉浸", sub: "強烈色彩包覆", weightPhrase: "dominant rich color saturation, deeply immersive color atmosphere" }
+  { key: "dominant", name: "濃郁・包圍", sub: "強烈色彩包覆", weightPhrase: "dominant rich color saturation, deeply immersive color atmosphere" }
 ];
 
 export const CONTRAST: Option[] = [
@@ -227,5 +227,5 @@ export const MJ_VERSIONS: Option[] = [
   { key: "5.2", name: "v 5.2", sub: "高對比與藝術感" }
 ];
 
-export const DEFAULT_SUFFIX = "serene minimalist photography, vast open composition, zen-like stillness, soft natural light, meditative simplicity, understated and calm, high detail";
+export const DEFAULT_SUFFIX = "serene minimalist photography, vast open composition, zen-like stillness, soft natural light, meditative simplicity";
 export const STORAGE_KEY = "prompt-studio-universal-v1";
